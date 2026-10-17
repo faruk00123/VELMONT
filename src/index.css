@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-teal font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-copper-100 text-teal;
+  }
+
+  /* Accessible focus ring across the whole storefront */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-copper ring-offset-2 ring-offset-ivory;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-teal text-ivory hover:bg-teal-600 active:translate-y-px;
+  }
+
+  .btn-copper {
+    @apply btn bg-copper text-white hover:bg-copper-600 active:translate-y-px;
+  }
+
+  .btn-outline {
+    @apply btn border border-teal text-teal hover:bg-teal hover:text-ivory active:translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-white text-teal hover:border-teal active:translate-y-px;
+  }
+
+  .input-field {
+    @apply w-full rounded-sm border border-line bg-white px-4 py-3 text-sm text-teal placeholder:text-softgray/70 transition-colors focus:border-teal focus:outline-none;
+  }
+
+  .label-field {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-teal;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-copper-600;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-sm px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
