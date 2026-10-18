@@ -78,7 +78,7 @@ export default function NewsletterForm({ variant = 'light', showNote = true }) {
             aria-describedby={error ? `newsletter-error-${variant}` : undefined}
             className={
               dark
-                ? 'w-full rounded-sm border border-ivory/25 bg-teal-600 px-4 py-3 text-sm text-ivory placeholder:text-ivory/50 focus:border-copper focus:outline-none'
+                ? 'w-full rounded-sm border border-ivory/25 bg-teal-600 px-4 py-3 text-base text-ivory placeholder:text-ivory/50 focus:border-copper focus:outline-none sm:text-sm'
                 : 'input-field'
             }
           />

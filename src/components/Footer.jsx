@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CATEGORIES } from '../data/products.js'
+import { CONTACT, mailtoLink, telLink } from '../data/contact.js'
 import {
   MailIcon,
   PhoneIcon,
@@ -14,12 +15,12 @@ const HELP_LINKS = [
   { label: 'FAQ', to: '/faq' },
   { label: 'Shipping & Returns', to: '/shipping-returns' },
   { label: 'Contact us', to: '/contact' },
-  { label: 'Track a demo order', to: '/contact' },
+  { label: 'Track a demo order', to: '/shipping-returns#tracking' },
 ]
 
 const COMPANY_LINKS = [
   { label: 'Our story', to: '/about' },
-  { label: 'Sustainability', to: '/about' },
+  { label: 'Sustainability', to: '/about#sustainability' },
   { label: 'Privacy Policy', to: '/privacy' },
   { label: 'Terms of Service', to: '/terms' },
 ]
@@ -87,20 +88,27 @@ export default function Footer() {
             repaired, resoled and kept.
           </p>
           <ul className="mt-5 flex flex-col gap-2.5 text-sm text-ivory/70">
-            <li className="flex items-center gap-2.5">
-              <PinIcon className="h-4 w-4 shrink-0 text-copper-300" />
-              Barishal, Barishal Sadar, Bangladesh
-            </li>
-            <li className="flex items-center gap-2.5">
-              <MailIcon className="h-4 w-4 shrink-0 text-copper-300" />
-              <a href="mailto:omar013faruka@gmail.com?subject=Job%20Application" className="hover:text-ivory">
-                omar013faruka@gmail.com
+            <li className="flex items-start gap-2.5">
+              <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-copper-300" />
+              <a
+                href={CONTACT.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="min-w-0 break-words hover:text-ivory"
+              >
+                {CONTACT.location}
               </a>
             </li>
-            <li className="flex items-center gap-2.5">
-              <PhoneIcon className="h-4 w-4 shrink-0 text-copper-300" />
-              <a href="tel:+4531000000" className="hover:text-ivory">
-                +8801328086411
+            <li className="flex items-start gap-2.5">
+              <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-copper-300" />
+              <a href={mailtoLink()} className="min-w-0 break-all hover:text-ivory">
+                {CONTACT.email}
+              </a>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-copper-300" />
+              <a href={telLink} className="min-w-0 break-words hover:text-ivory">
+                {CONTACT.phoneDisplay}
               </a>
             </li>
           </ul>

@@ -34,7 +34,7 @@ export default function PolicyLayout({ sections, footerNote, onThisPageLabel = '
       <div className="grid gap-10 lg:grid-cols-[240px_1fr] lg:gap-14">
         <nav aria-label={onThisPageLabel} className="lg:sticky lg:top-[92px] lg:self-start">
           <p className="eyebrow">{onThisPageLabel}</p>
-          <ul className="mt-4 flex gap-2 overflow-x-auto pb-1 no-scrollbar lg:flex-col lg:gap-0.5 lg:overflow-visible">
+          <ul className="mt-4 flex gap-2 overflow-x-auto overscroll-x-contain pb-1 no-scrollbar lg:flex-col lg:gap-0.5 lg:overflow-visible">
             {sections.map((section) => {
               const active = activeId === section.id
               return (
@@ -56,11 +56,11 @@ export default function PolicyLayout({ sections, footerNote, onThisPageLabel = '
           </ul>
         </nav>
 
-        <div className="max-w-3xl">
+        <div className="min-w-0 max-w-3xl">
           <div className="space-y-10">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-28">
-                <h2 className="font-display text-2xl text-teal">{section.title}</h2>
+                <h2 className="break-words font-display text-2xl text-teal">{section.title}</h2>
                 <div className="mt-4 space-y-4 text-sm leading-relaxed text-softgray">
                   {section.body}
                 </div>

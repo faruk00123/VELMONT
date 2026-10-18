@@ -190,7 +190,7 @@ export default function About() {
       </section>
 
       {/* Principles */}
-      <section className="container-site py-14 sm:py-16">
+      <section id="sustainability" className="container-site scroll-mt-28 py-14 sm:py-16">
         <div className="mb-10 max-w-2xl">
           <span className="eyebrow">What we stand for</span>
           <h2 className="mt-3 font-display text-3xl text-teal sm:text-4xl">

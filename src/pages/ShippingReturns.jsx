@@ -15,7 +15,7 @@ const SECTIONS = [
           atelier would actually ship.
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+          <table className="w-full border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-line text-[11px] uppercase tracking-wider text-softgray">
                 <th scope="col" className="py-3 pr-4 font-semibold">Method</th>

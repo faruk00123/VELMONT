@@ -41,7 +41,7 @@ export default function PageHeader({
           {eyebrow && (
             <span className="eyebrow text-copper-300">{eyebrow}</span>
           )}
-          <h1 className="mt-3 font-display text-3xl leading-tight sm:text-4xl lg:text-[2.75rem]">
+          <h1 className="mt-3 break-words font-display text-3xl leading-tight sm:text-4xl lg:text-[2.75rem]">
             {title}
           </h1>
           {subtitle && (

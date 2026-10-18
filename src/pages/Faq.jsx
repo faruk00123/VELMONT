@@ -160,7 +160,7 @@ export default function Faq() {
         <div className="mt-10 grid gap-8 lg:grid-cols-[240px_1fr] lg:gap-12">
           {/* Categories */}
           <nav aria-label="FAQ topics" className="lg:sticky lg:top-[92px] lg:self-start">
-            <ul className="flex gap-2 overflow-x-auto pb-1 no-scrollbar lg:flex-col lg:gap-1 lg:overflow-visible">
+            <ul className="flex gap-2 overflow-x-auto overscroll-x-contain pb-1 no-scrollbar lg:flex-col lg:gap-1 lg:overflow-visible">
               {FAQ_GROUPS.map((group) => {
                 const active = !searching && group.id === activeGroup
                 return (
@@ -188,7 +188,7 @@ export default function Faq() {
           </nav>
 
           {/* Questions */}
-          <div>
+          <div className="min-w-0">
             {visibleGroups.length === 0 ? (
               <div className="rounded-sm border border-line bg-white px-6 py-12 text-center">
                 <p className="text-sm font-semibold text-teal">No answers matched that search</p>
@@ -221,11 +221,11 @@ export default function Faq() {
                               onClick={() => setOpenId(open ? '' : id)}
                               aria-expanded={open}
                               aria-controls={`faq-panel-${id}`}
-                              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-teal transition-colors hover:text-copper-600"
+                              className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-teal transition-colors hover:text-copper-600"
                             >
-                              {item.q}
+                              <span className="min-w-0 flex-1 break-words">{item.q}</span>
                               <ChevronDown
-                                className={`h-4 w-4 shrink-0 transition-transform ${
+                                className={`mt-0.5 h-4 w-4 shrink-0 transition-transform ${
                                   open ? 'rotate-180' : ''
                                 }`}
                               />
@@ -234,7 +234,7 @@ export default function Faq() {
                           {open && (
                             <div
                               id={`faq-panel-${id}`}
-                              className="animate-fadeIn px-5 pb-5 text-sm leading-relaxed text-softgray"
+                              className="animate-fadeIn break-words px-5 pb-5 text-sm leading-relaxed text-softgray"
                             >
                               {item.a}
                             </div>

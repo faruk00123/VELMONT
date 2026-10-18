@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import Seo from '../components/Seo.jsx'
 import NewsletterForm from '../components/NewsletterForm.jsx'
 import { useStore } from '../context/StoreContext.jsx'
+import { CONTACT, mailtoLink, telLink } from '../data/contact.js'
 import { isEmail, minLength, required, validate, hasErrors } from '../utils/validation.js'
 import { CheckIcon, MailIcon, PhoneIcon, PinIcon, SparkIcon } from '../components/Icons.jsx'
 
@@ -102,7 +103,7 @@ export default function Contact() {
       <div className="container-site py-10 sm:py-14">
         <div className="grid gap-8 lg:grid-cols-[1fr_400px] lg:gap-12">
           {/* Form */}
-          <div>
+          <div className="min-w-0">
             {sent ? (
               <div className="rounded-sm border border-forest/25 bg-white p-7 shadow-card">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-forest/10 text-forest">
@@ -301,34 +302,39 @@ export default function Contact() {
           </div>
 
           {/* Aside */}
-          <aside className="flex flex-col gap-5">
+          <aside className="flex min-w-0 flex-col gap-5">
             <div className="rounded-sm border border-line bg-white p-6 shadow-card">
               <h2 className="font-display text-lg text-teal">Studio details</h2>
               <ul className="mt-4 flex flex-col gap-4 text-sm">
                 <li className="flex items-start gap-3">
                   <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                  <span className="text-softgray">
-                    <span className="block font-semibold text-teal">VELMONT Atelier</span>
-                    14 Harbour Lane
-                    <br />
-                    1055 Copenhagen, Denmark
+                  <span className="min-w-0 text-softgray">
+                    <span className="block font-semibold text-teal">{CONTACT.name}</span>
+                    <a
+                      href={CONTACT.mapUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="break-words hover:text-copper-600"
+                    >
+                      {CONTACT.location}
+                    </a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <MailIcon className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                  <span className="text-softgray">
+                  <span className="min-w-0 text-softgray">
                     <span className="block font-semibold text-teal">Email</span>
-                    <a href="mailto:studio@velmont.example" className="hover:text-copper-600">
-                      studio@velmont.example
+                    <a href={mailtoLink()} className="break-all hover:text-copper-600">
+                      {CONTACT.email}
                     </a>
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <PhoneIcon className="mt-0.5 h-5 w-5 shrink-0 text-copper" />
-                  <span className="text-softgray">
+                  <span className="min-w-0 text-softgray">
                     <span className="block font-semibold text-teal">Phone</span>
-                    <a href="tel:+4531000000" className="hover:text-copper-600">
-                      +45 31 00 00 00
+                    <a href={telLink} className="break-words hover:text-copper-600">
+                      {CONTACT.phoneDisplay}
                     </a>
                   </span>
                 </li>
