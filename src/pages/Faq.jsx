@@ -159,7 +159,7 @@ export default function Faq() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[240px_1fr] lg:gap-12">
           {/* Categories */}
-          <nav aria-label="FAQ topics" className="lg:sticky lg:top-[92px] lg:self-start">
+          <nav aria-label="FAQ topics" className="min-w-0 lg:sticky lg:top-[92px] lg:self-start">
             <ul className="flex gap-2 overflow-x-auto overscroll-x-contain pb-1 no-scrollbar lg:flex-col lg:gap-1 lg:overflow-visible">
               {FAQ_GROUPS.map((group) => {
                 const active = !searching && group.id === activeGroup

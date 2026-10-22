@@ -194,7 +194,11 @@ export default function ProductDetails() {
               </button>
             </div>
 
-            <div className="mt-3 flex gap-3" role="group" aria-label="Product image thumbnails">
+            <div
+              className="mt-3 flex gap-2 overflow-x-auto pb-1 no-scrollbar sm:gap-3 sm:overflow-visible sm:pb-0"
+              role="group"
+              aria-label="Product image thumbnails"
+            >
               {product.images.map((img, i) => (
                 <button
                   key={img}
@@ -202,7 +206,7 @@ export default function ProductDetails() {
                   onClick={() => setActiveImage(i)}
                   aria-label={`Show image ${i + 1}`}
                   aria-current={activeImage === i}
-                  className={`h-20 w-20 overflow-hidden rounded-sm border-2 transition-all ${
+                  className={`h-16 w-16 shrink-0 overflow-hidden rounded-sm border-2 transition-all sm:h-20 sm:w-20 ${
                     activeImage === i ? 'border-teal' : 'border-line hover:border-teal/50'
                   }`}
                 >
@@ -217,7 +221,7 @@ export default function ProductDetails() {
               <button
                 type="button"
                 onClick={() => setQuickViewId(product.id)}
-                className="flex h-20 w-20 flex-col items-center justify-center gap-1 rounded-sm border-2 border-dashed border-line text-[10px] font-semibold uppercase tracking-wider text-softgray transition-colors hover:border-teal hover:text-teal"
+                className="flex h-16 w-16 shrink-0 flex-col items-center justify-center gap-1 rounded-sm border-2 border-dashed border-line text-[9px] font-semibold uppercase tracking-wider text-softgray transition-colors hover:border-teal hover:text-teal sm:h-20 sm:w-20 sm:text-[10px]"
               >
                 Quick
                 <br />

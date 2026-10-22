@@ -284,7 +284,7 @@ export default function Shop() {
             </aside>
 
             {/* Results */}
-            <div>
+            <div className="min-w-0">
               {/* Toolbar */}
               <div className="flex flex-col gap-4 rounded-sm border border-line bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="relative flex-1 sm:max-w-xs">
@@ -302,14 +302,14 @@ export default function Shop() {
                   />
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 items-center gap-3">
                   <button
                     type="button"
                     onClick={() => setFiltersOpen(true)}
-                    className="btn-ghost flex-1 py-2.5 lg:hidden"
+                    className="btn-ghost min-w-0 flex-1 py-2.5 lg:hidden"
                     aria-haspopup="dialog"
                   >
-                    <FilterIcon className="h-4 w-4" />
+                    <FilterIcon className="h-4 w-4 shrink-0" />
                     Filters
                     {activeCount > 0 && (
                       <span className="rounded-full bg-teal px-1.5 text-[10px] font-bold text-ivory">
@@ -318,7 +318,7 @@ export default function Shop() {
                     )}
                   </button>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none">
                     <label htmlFor="sort" className="hidden text-xs text-softgray sm:block">
                       Sort
                     </label>
@@ -326,7 +326,7 @@ export default function Shop() {
                       id="sort"
                       value={sort}
                       onChange={(e) => setSort(e.target.value)}
-                      className="input-field w-auto py-2.5 pr-9 text-sm"
+                      className="input-field min-w-0 flex-1 py-2.5 pr-9 text-sm sm:w-auto sm:flex-none"
                     >
                       {SORTS.map((option) => (
                         <option key={option.id} value={option.id}>

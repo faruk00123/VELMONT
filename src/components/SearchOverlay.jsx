@@ -51,7 +51,7 @@ export default function SearchOverlay() {
       onClick={() => setSearchOpen(false)}
     >
       <div
-        className="animate-fadeUp mx-auto mt-0 w-full max-w-3xl bg-ivory p-5 shadow-modal sm:mt-16 sm:rounded-sm sm:p-7"
+        className="animate-fadeUp mx-auto mt-0 max-h-[100dvh] w-full max-w-3xl overflow-y-auto overscroll-contain bg-ivory p-5 shadow-modal sm:mt-16 sm:max-h-[calc(100dvh-8rem)] sm:rounded-sm sm:p-7"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">

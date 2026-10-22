@@ -32,7 +32,7 @@ export default function PolicyLayout({ sections, footerNote, onThisPageLabel = '
   return (
     <div className="container-site py-10 sm:py-14">
       <div className="grid gap-10 lg:grid-cols-[240px_1fr] lg:gap-14">
-        <nav aria-label={onThisPageLabel} className="lg:sticky lg:top-[92px] lg:self-start">
+        <nav aria-label={onThisPageLabel} className="min-w-0 lg:sticky lg:top-[92px] lg:self-start">
           <p className="eyebrow">{onThisPageLabel}</p>
           <ul className="mt-4 flex gap-2 overflow-x-auto overscroll-x-contain pb-1 no-scrollbar lg:flex-col lg:gap-0.5 lg:overflow-visible">
             {sections.map((section) => {

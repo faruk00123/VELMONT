@@ -21,22 +21,27 @@ const ANNOUNCEMENTS = [
 
 function Logo({ light = false }) {
   return (
-    <Link to="/" className="group flex items-center gap-2.5" aria-label="VELMONT — home">
-      <svg viewBox="0 0 64 64" className="h-9 w-9 shrink-0" aria-hidden="true">
+    <Link
+      to="/"
+      className="group flex shrink-0 items-center gap-1.5 sm:gap-2.5"
+      aria-label="VELMONT — home"
+    >
+      <svg viewBox="0 0 64 64" className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" aria-hidden="true">
         <rect width="64" height="64" rx="14" fill={light ? '#F7F3EB' : '#174E50'} />
         <path d="M16 18 L26.5 44 H32 L21.5 18 Z" fill={light ? '#174E50' : '#F7F3EB'} />
         <path d="M34 18 L44.5 44 H50 L39.5 18 Z" fill="#C58B52" />
       </svg>
-      <span className="flex flex-col leading-none">
+      <span className="flex min-w-0 flex-col leading-none">
         <span
-          className={`font-display text-[22px] font-semibold tracking-[0.14em] ${
+          className={`font-display text-[17px] font-semibold tracking-[0.1em] sm:text-[22px] sm:tracking-[0.14em] ${
             light ? 'text-ivory' : 'text-teal'
           }`}
         >
           VELMONT
         </span>
+        {/* The tagline is decorative; hiding it on phones keeps the header on one line. */}
         <span
-          className={`mt-0.5 text-[9px] font-medium uppercase tracking-[0.34em] ${
+          className={`mt-0.5 hidden text-[9px] font-medium uppercase tracking-[0.34em] sm:block ${
             light ? 'text-ivory/60' : 'text-softgray'
           }`}
         >
@@ -131,11 +136,11 @@ export default function Navbar() {
 
       {/* Announcement bar — a deeper teal, rotating its message */}
       <div className="bg-teal-700 text-ivory">
-        <div className="container-site flex h-10 items-center justify-center gap-3 text-center">
+        <div className="container-site flex min-h-10 items-center justify-center gap-3 py-2 text-center">
           <TruckIcon className="hidden h-4 w-4 shrink-0 text-copper-300 sm:block" />
           <p
             key={announcementIndex}
-            className="animate-fadeIn text-[11px] font-medium tracking-wide sm:text-xs"
+            className="animate-fadeIn text-[10px] font-medium leading-snug tracking-wide sm:text-xs"
           >
             {ANNOUNCEMENTS[announcementIndex]}
           </p>
@@ -148,12 +153,12 @@ export default function Navbar() {
           scrolled ? 'shadow-[0_10px_30px_rgba(6,24,24,0.28)]' : ''
         }`}
       >
-        <div className="container-site flex h-[72px] items-center justify-between gap-4">
+        <div className="container-site flex h-[72px] items-center justify-between gap-2 sm:gap-4">
           {/* Mobile menu trigger */}
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="-ml-2 rounded-sm p-2 text-ivory lg:hidden"
+            className="-ml-2 shrink-0 rounded-sm p-2 text-ivory lg:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
           >
@@ -251,11 +256,11 @@ export default function Navbar() {
           </nav>
 
           {/* Utility actions */}
-          <div className="flex items-center gap-0.5 sm:gap-1">
+          <div className="flex shrink-0 items-center gap-0 sm:gap-1">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="rounded-sm p-2.5 text-ivory transition-colors hover:bg-ivory/10"
+              className="rounded-sm p-2 text-ivory transition-colors hover:bg-ivory/10 sm:p-2.5"
               aria-label="Search products"
             >
               <SearchIcon className="h-5 w-5" />
@@ -272,7 +277,7 @@ export default function Navbar() {
 
             <Link
               to="/wishlist"
-              className="relative rounded-sm p-2.5 text-ivory transition-colors hover:bg-ivory/10"
+              className="relative rounded-sm p-2 text-ivory transition-colors hover:bg-ivory/10 sm:p-2.5"
               aria-label={`Wishlist, ${wishlistCount} items`}
             >
               <HeartIcon className="h-5 w-5" />
@@ -281,7 +286,7 @@ export default function Navbar() {
 
             <Link
               to="/cart"
-              className="relative rounded-sm p-2.5 text-ivory transition-colors hover:bg-ivory/10"
+              className="relative -mr-2 rounded-sm p-2 text-ivory transition-colors hover:bg-ivory/10 sm:mr-0 sm:p-2.5"
               aria-label={`Shopping bag, ${cartCount} items`}
             >
               <BagIcon className="h-5 w-5" />
